@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Document</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script type="text/javascript" charset="utf-8">
+        function show(){
+            alert("安卓调用h5显示");
+        }
+
+    </script>
+
+</head>
+<body>
+
+<button id="liu" type="button" onclick="showConfirm()">Click Me!</button>
+
+<script type="text/javascript">
+function myFunction()
+{
+    <!--var cal = "{\"method\":\"onClosed\",\"parmas\":\"nihao\"}";-->
+    var cal = "{\"method\":\"onClosed\",\"parmas\":\{\"key1\":\"value1\",\"key2\":\"value2\"}}";
+    alert(cal);
+    jsInterface.method(cal);
+}
+
+
+function show()
+{
+    alert("java调用 js");
+}
+function showConfirm(){
+    if(typeof(Storage)!=="undefined"){
+        if(localStorage.clickcount){
+                localStorage.clickcount = Number(localStorage.clickcount)+1;
+
+        }else {
+             localStorage.clickcount=1
+         }
+    }else{
+        alert("not suppeort");
+    }
+     document.getElementById("liu").innerHTML="你点击了："+localStorage.clickcount;
+}
+
+</script>
+
+</body>
+</html>
